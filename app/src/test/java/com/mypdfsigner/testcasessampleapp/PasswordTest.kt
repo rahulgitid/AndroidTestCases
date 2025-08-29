@@ -8,7 +8,6 @@ import org.junit.Test
 class PasswordTest {
 
     lateinit var util: Util
-
     @Before
     fun doBefore(){
         println("Before")
