@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroud_gradient"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- 1. Top Title -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Quote"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@android:color/white" /> <!-- Adjust text color for visibility on gradient -->
+
+
+    <!-- Container for Card and Overlapping Button -->
+    <RelativeLayout
+        android:id="@+id/cardAndShareContainer"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:clipChildren="false"
+        android:clipToPadding="false"> <!-- Important: Allows button to draw outside bounds -->
+        <!-- android:clipToPadding="false" Might also be needed depending on parent paddings -->
+
+
+        <!-- 2. Center Card with TextView -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/centerCardView"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            app:contentPadding="16dp">
+
+            <TextView
+                android:id="@+id/textViewOnCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF0CAC"
+                android:textStyle="bold"
+                android:letterSpacing="0.01"
+                android:textSize="16sp"
+                android:paddingBottom="20dp"
+                android:text="This is some text inside the card. It can be multiple lines long to demonstrate how the card wraps around it. The share button will overlap this card's bottom edge."
+                android:layout_gravity="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 3. Overlapping Share Button (FloatingActionButton style) -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="Share"
+            android:src="@drawable/baseline_share_24"
+            app:backgroundTint="?attr/colorPrimary"
+            android:layout_alignParentBottom="true"
+            app:elevation="10dp"
+            app:fabSize="normal"
+            app:tint="@android:color/white" />
+
+    </RelativeLayout>
+    <!-- 3. Bottom Buttons -->
+    <LinearLayout
+        android:id="@+id/bottomButtonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_addquote"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonPrevious"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="Previous"
+            android:backgroundTint="#FF0000"
+            android:textColor="@android:color/white"
+            app:strokeColor="@android:color/white" /> <!-- For visibility on gradient -->
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonNext"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="Next"
+            android:backgroundTint="#FF0000"
+            android:textColor="@color/white"
+            app:strokeColor="@android:color/white"
+            /> <!-- Contrast with white button -->
+        <!-- Replace your_gradient_start_or_end_color with a color that contrasts well with white -->
+
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_addquote"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dp"
+        android:layout_weight="1"
+        android:text="Add Quote"
+        android:backgroundTint="#FF0000"
+        android:textColor="@android:color/white"
+        app:strokeColor="@android:color/white" />
+</RelativeLayout>

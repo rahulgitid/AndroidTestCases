@@ -5,7 +5,7 @@ import com.google.gson.Gson
 
 class QuoteManager {
 
-lateinit var quoteList: Array<Quote>
+ lateinit var quoteList: Array<Quote>
 var index: Int =0;
     fun populateQuotesFromAssets(context: Context, fileName: String)  {
         val inputStream = context.assets.open(fileName)
@@ -29,5 +29,9 @@ var index: Int =0;
     fun getNextQuote(): Quote {
         if (index == quoteList.size - 1) return quoteList[index]
         return quoteList[++index]
+    }
+
+    fun getCurrentQuote(): Quote{
+        return quoteList[index]
     }
 }
